@@ -42,3 +42,25 @@ li {
 }
 
 .delete-btn { background: #dc3545; padding: 5px 10px; font-size: 12px; }
+/* هذا الجزء سيجعل المشاريع تصطف أفقياً */
+.main-wrapper {
+    display: flex;
+    flex-direction: row; /* صف أفقي */
+    flex-wrap: wrap;    /* ينزل للأسفل فقط في الموبايل */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;          /* مسافة بين المشروعين */
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* تنسيق إضافي لصندوق الطقس ليكون جذاباً */
+.weather-container {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+}
