@@ -44,3 +44,38 @@ function showTask() {
 
 // استدعاء الدالة فور فتح الصفحة
 showTask();
+async function getWeather() {
+    const city = document.getElementById('cityInput').value;
+    const resultDiv = document.getElementById('weatherResult');
+    
+    // هذا مفتاح تجريبي يعمل حالياً
+    const apiKey = "b6907d289e10d714a6e88b30761fae22"; 
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ar`;
+
+    if (city.trim() === "") {
+        resultDiv.innerHTML = "<p>يرجى كتابة اسم المدينة أولاً</p>";
+        return;
+    }
+
+    try {
+        resultDiv.innerHTML = "<p>جاري جلب البيانات...⏳</p>";
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.cod === "404") {
+            resultDiv.innerHTML = "<p>❌ المدينة غير موجودة، تأكد من السبيلنج</p>";
+            return;
+        }
+
+        resultDiv.innerHTML = `
+            <div style="margin-top:15px;">
+                <h3>${data.name} 📍</h3>
+                <h1 style="font-size: 3rem; margin: 10px 0;">${Math.round(data.main.temp)}°C</h1>
+                <p>الحالة: ${data.weather[0].description}</p>
+                <small>الرطوبة: ${data.main.humidity}%</small>
+            </div>
+        `;
+    } catch (error) {
+        resultDiv.innerHTML = "<p>⚠️ فشل الاتصال بالسيرفر</p>";
+    }
+}
