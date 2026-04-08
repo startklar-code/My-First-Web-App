@@ -40,6 +40,9 @@ function saveData() {
 // كود قائمة المهام (تأكد من وجود دالة addTask و showTask هنا)
 
 // كود جلب الطقس
+// كود قائمة المهام (تأكد من وجود دالة addTask و showTask هنا)
+
+// كود جلب الطقس
 async function getWeather() {
     const city = document.getElementById('cityInput').value;
     const resultDiv = document.getElementById('weatherResult');
