@@ -46,7 +46,7 @@ function saveData() {
 async function getWeather() {
     const city = document.getElementById('cityInput').value;
     const resultDiv = document.getElementById('weatherResult');
-    const apiKey = "b6907d289e10d714a6e88b30761fae22"; 
+    const apiKey = "60cf9723b71192e4e7e60155b11a5b82";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ar`;
 
     if (city.trim() === "") {
