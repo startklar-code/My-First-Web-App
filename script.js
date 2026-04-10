@@ -75,15 +75,12 @@ async function getWeatherOldr() {
     }
 }
 // تصدير الدالة للاختبار
-if (typeof module !== 'undefined') {
-    function sum(a, b) {
-    return a + b;
-}
+const { sum } = require('./script');
 
-// تعديل التصدير ليشمل الدالة الجديدة
-if (typeof module !== 'undefined') {
-    module.exports = { getWeather, sum };
-}
+test('فحص دالة الجمع - النجاح الحقيقي', () => {
+    // الآن نخبره أن 2 + 2 يجب أن تكون 4
+    expect(sum(2, 2)).toBe(4); 
+});
     
    module.exports = { getWeather: getWeatherOldr };
 }
