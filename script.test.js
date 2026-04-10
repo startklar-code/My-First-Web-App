@@ -1,7 +1,10 @@
 const { getWeather } = require('./script');
 
-test('يجب أن تفشل الدالة إذا كانت المدينة فارغة', async () => {
-    // سنحاول تشغيل الدالة ونتوقع أنها ستعطي خطأ أو قيمة معينة
-    const result = await getWeather(""); 
-    expect(result).toBe("error"); // هذا سيفشل لأن الدالة لا تعيد كلمة error
+test('يجب أن تعيد الدالة نجاحاً عند طلب طقس لندن', async () => {
+    // سنحاول تشغيل الدالة
+    const result = await getWeather('London');
+    
+    // سنضع شرطاً تعجيزياً: نتوقع أن الدالة تعيد كلمة "success"
+    // وبما أن دالتك لا تعيد شيئاً (undefined)، سيفشل الاختبار
+    expect(result).toBe('success');
 });
