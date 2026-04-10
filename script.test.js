@@ -1,10 +1,6 @@
-const { getWeather } = require('./script');
+const { sum } = require('./script');
 
-test('يجب أن تعيد الدالة نجاحاً عند طلب طقس لندن', async () => {
-    // سنحاول تشغيل الدالة
-    const result = await getWeather('London');
-    
-    // سنضع شرطاً تعجيزياً: نتوقع أن الدالة تعيد كلمة "success"
-    // وبما أن دالتك لا تعيد شيئاً (undefined)، سيفشل الاختبار
-    expect(result).toBe('success');
+test('فحص دالة الجمع - اختبار الفشل المتعمد', () => {
+    // نحن نعلم أن 2+2 تساوي 4، لكننا سنخبره أنها يجب أن تكون 5
+    expect(sum(2, 2)).toBe(5);
 });
