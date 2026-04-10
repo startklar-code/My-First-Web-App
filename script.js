@@ -70,5 +70,5 @@ function sum(a, b) {
 
 // التصدير الصحيح (هذا السطر يكون في نهاية الملف تماماً)
 if (typeof module !== 'undefined') {
-    module.exports = { getWeather: getWeatherOldr, sum: sum };
+    module.exports = { sum: sum };
 }
