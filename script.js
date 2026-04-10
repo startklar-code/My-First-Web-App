@@ -76,5 +76,14 @@ async function getWeatherOldr() {
 }
 // تصدير الدالة للاختبار
 if (typeof module !== 'undefined') {
+    function sum(a, b) {
+    return a + b;
+}
+
+// تعديل التصدير ليشمل الدالة الجديدة
+if (typeof module !== 'undefined') {
+    module.exports = { getWeather, sum };
+}
+    
    module.exports = { getWeather: getWeatherOldr };
 }
