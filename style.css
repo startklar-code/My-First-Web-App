@@ -1,66 +1,64 @@
-body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; }
+/* إعدادات الخط والخلفية */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    color: #fff;
+}
 
-.todo-container {
-    background: white;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
+/* الحاوية الرئيسية بتأثير زجاجي */
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* تصميم مربع الإدخال */
+input {
+    width: 80%;
+    padding: 12px;
+    border: none;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 16px;
 }
 
-.input-group { display: flex; gap: 5px; }
-
-input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
+/* تصميم الزر مع تأثير عند التمرير */
 button {
-    padding: 10px 15px;
-    background-color: #28a745;
+    background: #ff6b6b;
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 12px 25px;
+    border-radius: 10px;
     cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s, background 0.3s;
 }
 
-button:hover { background-color: #218838; }
-
-ul { list-style: none; padding: 0; margin-top: 20px; }
-
-li {
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: right;
+button:hover {
+    background: #ee5253;
+    transform: scale(1.05);
 }
 
-.delete-btn { background: #dc3545; padding: 5px 10px; font-size: 12px; }
-/* هذا الجزء سيجعل المشاريع تصطف أفقياً */
-.main-wrapper {
-    display: flex;
-    flex-direction: row; /* صف أفقي */
-    flex-wrap: wrap;    /* ينزل للأسفل فقط في الموبايل */
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;          /* مسافة بين المشروعين */
-    padding: 20px;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-/* تنسيق إضافي لصندوق الطقس ليكون جذاباً */
-.weather-container {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
-    padding: 20px;
-    border-radius: 15px;
-    width: 350px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    text-align: center;
+/* منطقة عرض النتيجة */
+#weatherResult {
+    margin-top: 25px;
+    font-size: 18px;
+    line-height: 1.6;
 }
