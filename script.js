@@ -43,7 +43,7 @@ function saveData() {
 // كود قائمة المهام (تأكد من وجود دالة addTask و showTask هنا)
 
 // كود جلب الطقس
-async function getWeather() {
+async function getWeatherOldr() {
     const city = document.getElementById('cityInput').value;
     const resultDiv = document.getElementById('weatherResult');
     const apiKey = "60cf9723b71192e4e7e60155b11a5b82";
