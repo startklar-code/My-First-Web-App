@@ -74,3 +74,7 @@ async function getWeather() {
         resultDiv.innerHTML = "<p>⚠️ عذراً، حدث خطأ في الاتصال</p>";
     }
 }
+// تصدير الدالة للاختبار
+if (typeof module !== 'undefined') {
+    module.exports = { getWeather };
+}
