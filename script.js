@@ -55,32 +55,20 @@ async function getWeatherOldr() {
     }
 
     try {
-        resultDiv.innerHTML = "<p>جاري جلب البيانات...⏳</p>";
         const response = await fetch(url);
         const data = await response.json();
-
-        if (data.cod === "404") {
-            resultDiv.innerHTML = "<p>❌ المدينة غير موجودة</p>";
-            return;
-        }
-
-        resultDiv.innerHTML = `
-            <div style="margin-top:15px;">
-                <h3>${data.name} 📍</h3>
-                <h1 style="font-size: 2.5rem; margin: 10px 0;">${Math.round(data.main.temp)}°C</h1>
-                <p>الحالة: ${data.weather[0].description}</p>
-            </div>`;
+        // هنا تضع بقية كود عرض البيانات...
     } catch (error) {
         resultDiv.innerHTML = "<p>⚠️ عذراً، حدث خطأ في الاتصال</p>";
     }
 }
-// تصدير الدالة للاختبار
-const { sum } = require('./script');
 
-test('فحص دالة الجمع - النجاح الحقيقي', () => {
-    // الآن نخبره أن 2 + 2 يجب أن تكون 4
-    expect(sum(2, 2)).toBe(4); 
-});
-    
-   module.exports = { getWeather: getWeatherOldr };
+// دالة الجمع التي أضفناها للفحص
+function sum(a, b) {
+    return a + b;
+}
+
+// التصدير الصحيح (هذا السطر يكون في نهاية الملف تماماً)
+if (typeof module !== 'undefined') {
+    module.exports = { getWeather: getWeatherOldr, sum: sum };
 }
