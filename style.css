@@ -1,64 +1,65 @@
-/* إعدادات الخط والخلفية */
+/* الخلفية الأساسية */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #00b4db, #0083b0);
-    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
-    color: #fff;
+    font-family: 'Cairo', sans-serif;
 }
 
-/* الحاوية الرئيسية بتأثير زجاجي */
-.container {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 40px;
-    width: 350px;
+/* الحاوية الزجاجية */
+.weather-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     text-align: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+/* صندوق البحث */
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-/* تصميم مربع الإدخال */
-input {
-    width: 80%;
+.search-box input {
+    flex: 2;
     padding: 12px;
+    border-radius: 12px;
     border: none;
-    border-radius: 10px;
-    margin-bottom: 20px;
     outline: none;
-    font-size: 16px;
+    font-size: 14px;
 }
 
-/* تصميم الزر مع تأثير عند التمرير */
-button {
-    background: #ff6b6b;
+.search-box button {
+    flex: 1;
+    background: #4caf50;
     color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 16px;
-    transition: transform 0.2s, background 0.3s;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-button:hover {
-    background: #ee5253;
+.search-box button:hover {
+    background: #45a049;
     transform: scale(1.05);
 }
 
-/* منطقة عرض النتيجة */
-#weatherResult {
-    margin-top: 25px;
-    font-size: 18px;
-    line-height: 1.6;
+/* منطقة عرض المعلومات */
+.weather-info {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
 }
