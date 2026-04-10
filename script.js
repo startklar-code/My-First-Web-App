@@ -76,5 +76,5 @@ async function getWeatherOldr() {
 }
 // تصدير الدالة للاختبار
 if (typeof module !== 'undefined') {
-    module.exports = { getWeather };
+   module.exports = { getWeather: getWeatherOldr };
 }
