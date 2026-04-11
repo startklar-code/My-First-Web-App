@@ -1,3 +1,4 @@
+// === 1. قسم قائمة المهام (To-Do List) ===
 function addTask() {
     let input = document.getElementById("taskInput");
     let taskText = input.value;
@@ -15,34 +16,28 @@ function addTask() {
 
     document.getElementById("taskList").appendChild(li);
     input.value = "";
-    saveData(); // حفظ بعد الإضافة
+    saveData();
 }
 
-// دالة التعديل
 function editTask(button) {
     let li = button.parentElement.parentElement;
     let span = li.querySelector(".task-text");
-    
     let newTask = prompt("قم بتعديل المهمة:", span.innerText);
     
     if (newTask !== null && newTask.trim() !== "") {
         span.innerText = newTask;
-        saveData(); // حفظ بعد التعديل
+        saveData();
     }
 }
-// دالة لحفظ القائمة في ذاكرة المتصفح
+
 function saveData() {
     let listContainer = document.getElementById("taskList");
-    localStorage.setItem("data", listContainer.innerHTML);
+    if (listContainer) {
+        localStorage.setItem("data", listContainer.innerHTML);
+    }
 }
 
-// دالة لعرض البيانات المحفوظة عند فتح المتصفح
-// كود قائمة المهام (تأكد من وجود دالة addTask و showTask هنا)
-
-// كود جلب الطقس
-// كود قائمة المهام (تأكد من وجود دالة addTask و showTask هنا)
-
-// كود جلب الطقس
+// === 2. قسم الطقس (Weather API) ===
 async function getWeather() {
     const city = document.getElementById('cityInput').value;
     const resultDiv = document.getElementById('weatherResult');
@@ -57,25 +52,26 @@ async function getWeather() {
     try {
         const response = await fetch(url);
         const data = await response.json();
-        // هنا تضع بقية كود عرض البيانات...
+        if (data.cod === 200) {
+            resultDiv.innerHTML = `<p>الحرارة في ${data.name}: ${data.main.temp}°C</p>`;
+        } else {
+            resultDiv.innerHTML = "<p>المدينة غير موجودة</p>";
+        }
     } catch (error) {
         resultDiv.innerHTML = "<p>⚠️ عذراً، حدث خطأ في الاتصال</p>";
     }
 }
 
-// دالة الجمع التي أضفناها للفحص
+// === 3. قسم محول العملات والجمع (للإختبار) ===
 function sum(a, b) {
     return a + b;
 }
 
-
-// دالة التحويل الأساسية
 function convertToSAR(usd) {
-    if (usd < 0) return 0; // حماية ضد الأرقام السالبة
+    if (usd < 0) return 0;
     return usd * 3.75;
 }
 
-// دالة العرض في المتصفح
 function convertCurrency() {
     const usd = document.getElementById('usdAmount').value;
     const resultDiv = document.getElementById('result');
@@ -83,11 +79,10 @@ function convertCurrency() {
     resultDiv.innerHTML = `المبلغ بالريال: ${sar.toFixed(2)} ريال`;
 }
 
-// في نهاية ملف script.js
+// === 4. التصدير للاختبار (Module Exports) ===
 if (typeof module !== 'undefined') {
     module.exports = { 
         sum: sum, 
         convertToSAR: convertToSAR 
     };
-}
 }
