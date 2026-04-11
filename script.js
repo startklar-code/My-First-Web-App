@@ -68,10 +68,7 @@ function sum(a, b) {
     return a + b;
 }
 
-// التصدير الصحيح (هذا السطر يكون في نهاية الملف تماماً)
-if (typeof module !== 'undefined') {
-    module.exports = { sum: sum };
-}
+
 // دالة التحويل الأساسية
 function convertToSAR(usd) {
     if (usd < 0) return 0; // حماية ضد الأرقام السالبة
@@ -86,7 +83,11 @@ function convertCurrency() {
     resultDiv.innerHTML = `المبلغ بالريال: ${sar.toFixed(2)} ريال`;
 }
 
-// تصدير الدالة للاختبار (مهم جداً!)
+// في نهاية ملف script.js
 if (typeof module !== 'undefined') {
-    module.exports = { convertToSAR };
+    module.exports = { 
+        sum: sum, 
+        convertToSAR: convertToSAR 
+    };
+}
 }
