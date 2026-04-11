@@ -23,7 +23,7 @@ function editTask(button) {
     let li = button.parentElement.parentElement;
     let span = li.querySelector(".task-text");
     let newTask = prompt("قم بتعديل المهمة:", span.innerText);
-    
+
     if (newTask !== null && newTask.trim() !== "") {
         span.innerText = newTask;
         saveData();
@@ -34,6 +34,10 @@ function saveData() {
     let listContainer = document.getElementById("taskList");
     if (listContainer) {
         localStorage.setItem("data", listContainer.innerHTML);
+
+
+
+
     }
 }
 
@@ -59,6 +63,12 @@ async function getWeather() {
         }
     } catch (error) {
         resultDiv.innerHTML = "<p>⚠️ عذراً، حدث خطأ في الاتصال</p>";
+
+
+
+
+
+
     }
 }
 
@@ -79,10 +89,13 @@ function convertCurrency() {
     resultDiv.innerHTML = `المبلغ بالريال: ${sar.toFixed(2)} ريال`;
 }
 
+
 // === 4. التصدير للاختبار (Module Exports) ===
 if (typeof module !== 'undefined') {
-    module.exports = { 
-        sum: sum, 
-        convertToSAR: convertToSAR 
+    module.exports =
+    {
+        sum: sum,
+        convertToSAR: convertToSAR
     };
 }
+
