@@ -72,3 +72,21 @@ function sum(a, b) {
 if (typeof module !== 'undefined') {
     module.exports = { sum: sum };
 }
+// دالة التحويل الأساسية
+function convertToSAR(usd) {
+    if (usd < 0) return 0; // حماية ضد الأرقام السالبة
+    return usd * 3.75;
+}
+
+// دالة العرض في المتصفح
+function convertCurrency() {
+    const usd = document.getElementById('usdAmount').value;
+    const resultDiv = document.getElementById('result');
+    const sar = convertToSAR(usd);
+    resultDiv.innerHTML = `المبلغ بالريال: ${sar.toFixed(2)} ريال`;
+}
+
+// تصدير الدالة للاختبار (مهم جداً!)
+if (typeof module !== 'undefined') {
+    module.exports = { convertToSAR };
+}
